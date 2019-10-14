@@ -1,17 +1,15 @@
-import React from 'react';
-import '../App.css';
+import React, { Component } from 'react';
+import Parts from '../Parts/Parts.js'
 
-export default function Summary(props) {
-  const { featureTitle, selected } = props;
-
-  return (
-    <div className="summary__option">
-      <div className="summary__option__label">{featureTitle}</div>
-      <div className="summary__option__value">{selected[featureTitle].name}</div>
-      <div className="summary__option__cost">
-        {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' })
-          .format(selected[featureTitle].cost)}
-      </div>
-    </div>
-  )
+class Summary extends Component {
+    render() {
+        return (
+            <div>
+                <h3>NEW GREENLEAF 2018</h3>
+                <Parts selected={this.props.selected} />
+            </div>
+        )
+    }
 }
+
+export default Summary;

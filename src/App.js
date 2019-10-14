@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
+import Summary from './Summary/Summary';
+import Features from './Features/Features';
+import Total from './Total/Total'
 import Header from './Header/Header'
-import FormSection from './FormSection/FormSection'
-import SummarySection from './SummarySection/SummarySection';
+import './App.css';
+import slugify from 'slugify';
+
+// This object will allow us to
+// easily convert numbers into US dollar values
+const USCurrencyFormat = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD'
+});
 
 class App extends Component {
   constructor(props){
@@ -29,7 +38,7 @@ class App extends Component {
     }
   }
 
-  updateFeature = (feature, newValue) => {
+  updateFeature(feature, newValue) {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
@@ -37,23 +46,24 @@ class App extends Component {
     });
   }
 
-  render() {
+  render() {  
+
     return (
       <div className="App">
-        <Header />      
+        <Header />     
         <main>
-          <FormSection 
-          selected={this.state.selected} 
-          handleUpdate={this.updateFeature}
-          features={this.props.features}
-          />
-
-          <SummarySection 
-          selected={this.state.selected}/>
+          <section className="main__form">
+            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
+           
+          </section>
+          <section className="main__summary">
+            <Summary selected={this.state.selected} />
+            <Total selected={this.state.selected} />
+          </section>
         </main>
       </div>
     );
   }
 }
 
-export default App;  
+export default App; 
