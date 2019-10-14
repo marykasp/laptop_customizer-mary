@@ -38,13 +38,13 @@ class App extends Component {
     }
   }
 
-  updateFeature(feature, newValue) {
+  updateFeature = (feature, newValue) => {
     const selected = Object.assign({}, this.state.selected);
     selected[feature] = newValue;
     this.setState({
       selected
     });
-  }
+  };
 
   render() {  
 
@@ -53,7 +53,7 @@ class App extends Component {
         <Header />     
         <main>
           <section className="main__form">
-            <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
+            <h3>Customize Your Laptop</h3>
             <FeatureList 
               features={this.props.features}
               selected={this.state.selected}

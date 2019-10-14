@@ -5,7 +5,7 @@ class Summary extends Component {
     render() {
         return (
             <div>
-                <h3>NEW GREENLEAF 2018</h3>
+                <h3>Your cart</h3>
                 <Parts selected={this.props.selected} />
             </div>
         )
