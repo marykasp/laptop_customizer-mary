@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Summary from './Summary/Summary';
-import Features from './Features/Features';
+import FeatureList from './FeatureList/FeatureList';
 import Total from './Total/Total'
 import Header from './Header/Header'
 import './App.css';
@@ -54,7 +54,11 @@ class App extends Component {
         <main>
           <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
-           
+            <FeatureList 
+              features={this.props.features}
+              selected={this.state.selected}
+              onSelect={this.updateFeature}
+            />
           </section>
           <section className="main__summary">
             <Summary selected={this.state.selected} />
